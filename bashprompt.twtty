@@ -45,7 +45,10 @@ hostnam=$(echo -n $HOSTNAME | sed -e "s/[\.].*//")
 usernam=$(whoami)
 cur_tty=$(tty | sed -e "s/.*tty\(.*\)/\1/")
 #cur_ruby=`rvm-prompt-gs i v p g`
-cur_ruby="$rvm_ruby_string-${rvm_gemset_name:-default}"
+#cur_ruby="$rvm_ruby_string-${rvm_gemset_name:-default}"
+cur_ruby_exe=$(ruby -v | cut -d' ' -f1-2)
+cur_ruby_ver=$(ruby -e 'puts "#{RUBY_VERSION}p#{RUBY_PATCHLEVEL}"')
+cur_ruby="$cur_ruby_exe $cur_ruby_ver"
 cur_git_branch=`parse_git_branch`
 
 newPWD="${PWD}"

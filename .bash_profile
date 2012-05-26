@@ -13,10 +13,10 @@ alias push='git push'
 alias pull='git pull'
 alias log='git log'
 alias add='git add'
-# alias ci='git commit'
-# alias co='git checkout'
-# alias br='git branch'
-# alias st='git status'
+alias ci='git commit'
+alias co='git checkout'
+alias br='git branch'
+alias st='git status'
 alias stash='git stash'
 alias diff='git diff'
 alias mergetool='git mergetool --tool=vimdiff'
@@ -79,9 +79,15 @@ if [[ -f ~/.rvm/bin/rvm ]]; then
 	. ~/.rvm/bin/rvm version
 fi
 
-#if [[ -f ~/bashprompt.twtty ]]; then
-#	. ~/bashprompt.twtty
-#fi
+if [[ -f $HOME/.rbenv/bin/rbenv ]]; then
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	eval "$(rbenv init -)"
+fi
+
+if [[ -f ~/bashprompt.twtty ]]; then
+	. ~/bashprompt.twtty
+fi
+
 if [[ -f ~/bin/git-completion.bash ]]; then
 	. ~/bin/git-completion.bash
 fi
@@ -91,9 +97,7 @@ fi
 
 set -o vi
 
-##
-# Your previous /Users/peterfitzgibbons/.bash_profile file was backed up as /Users/peterfitzgibbons/.bash_profile.macports-saved_2010-10-05_at_21:40:29
-##
-
-source /Users/peterfitzgibbons/perl5/perlbrew/etc/bashrc
+if [[ -f /Users/peterfitzgibbons/perl5/perlbrew/etc/bashrc ]]; then
+	source /Users/peterfitzgibbons/perl5/perlbrew/etc/bashrc
+fi
 
